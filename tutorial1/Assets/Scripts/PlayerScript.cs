@@ -102,22 +102,21 @@ public class PlayerScript : MonoBehaviour
     //Player rotasyonu hareket ediyorken değişsin
     void playerRotation1()
     {
-        //Ekranın ortasından headKamera objesinin 1.yavrusuna ulaşıp onun ilerisine doğru bir ışık çizdiriyoruz
+        //0,5,0 noktasından başlayıp  headKamera objesinin 1.yavrusuna ulaşıp onun ilerisine doğru bir ışık çizdiriyoruz
         Physics.Raycast(new Vector3(0, 5, 0), headCamera.transform.GetChild(0).forward, out hit);
         //karakterimizin rotasyonu mevcut rotasyonundan,baktığımız rotasyona doğru yani hit'in çarmmış olduğu kısmın rotasyonlarına doğru dönüş
         //yapmaktadır
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(hit.point.x, 0, hit.point.z)), .3f);
-        //Bu çizgiyi kırmızı renk ile çizdirmeye çalıştım fakat çizmedi WTF
+        //Bu çizgiyi kırmızı renk ile çizdirmeye çalıştım fakat çizmedi 
         Debug.DrawLine(Vector3.zero, hit.point, Color.red);
     }
-    //player rotasyonu nişan aldığında hareket etmiyorken de değişsin
     void playerRotation2()
     {
             Physics.Raycast(new Vector3(0,5,0), headCamera.transform.GetChild(0).forward, out hit);
             //karakterimizin rotasyonu mevcut rotasyonundan,baktığımız rotasyona doğru yani hit'in çarmmış olduğu kısmın rotasyonlarına doğru dönüş
             //yapmaktadır
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(hit.point.x, 0, hit.point.z)), .3f);
-            //Bu çizgiyi kırmızı renk ile çizdirmeye çalıştım fakat çizmedi WTF
+            //Bu çizgiyi kırmızı renk ile çizdirmeye çalıştım fakat çizmedi 
             Debug.DrawLine(Vector3.zero, hit.point,Color.red);
       
     }
